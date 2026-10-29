@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NxtWave // BUILD60 — 5-Slide Campaign Plan</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    body { padding: 28px 16px; }
+    .deck-container { max-width: 980px; margin: 0 auto; display: flex; flex-direction: column; gap: 26px; }
+    .slide {
+      background: var(--bg-panel);
+      border: 1.5px solid rgba(0, 240, 255, 0.45);
+      clip-path: var(--clip-card);
+      padding: 30px 34px;
+      position: relative;
+      page-break-after: always;
+    }
+    .slide::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 56px;
+      height: 3px;
+      background: var(--cyber-yellow);
+    }
+    .slide-num {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      font-weight: 800;
+      background: var(--cyber-yellow);
+      color: #06070C;
+      padding: 3px 10px;
+      display: inline-block;
+      margin-bottom: 12px;
+      clip-path: var(--clip-btn);
+    }
+    .slide h2 {
+      font-family: 'Chakra Petch', sans-serif;
+      font-size: 25px;
+      line-height: 1.2;
+      margin-bottom: 14px;
+      color: #FFFFFF;
+    }
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+    @media (max-width: 780px) { .grid-2, .grid-3 { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+  <canvas id="cyberCanvas"></canvas>
+  <div class="scanline-overlay"></div>
+
+  <div class="deck-container">
+    <div class="top-hud-bar" style="clip-path:var(--clip-btn); border:1px solid rgba(0,240,255,0.4);">
+      <span><strong>NXTWAVE // BUILD60</strong> • 5-SLIDE GROWTH PLAN (7 DAYS • ₹2,000 BUDGET • 500 REGISTRATIONS)</span>
+      <div style="display:flex; gap:10px;">
+        <button class="btn-secondary" onclick="window.print()">🖨 Save PDF</button>
+        <a href="index.html" class="btn-secondary" style="text-decoration:none;">← Launch Portal</a>
+      </div>
+    </div>
+
+    <!-- SLIDE 1 -->
+    <section class="slide">
+      <span class="slide-num">SLIDE 01 / 05 // STUDENT PERSONA</span>
+      <h2>Target Persona: Final-Year Tier-2/3 B.Tech Students in Placement Season</h2>
+      <div class="grid-3" style="margin-top:14px;">
+        <div class="card-subtle">
+          <strong style="color:var(--cyber-yellow); font-size:14px;">1. Who We Target</strong>
+          <p style="font-size:13px; color:var(--text-muted); margin-top:8px;">
+            <strong>Primary (75%):</strong> 7th/8th-semester CSE, IT, &amp; ECE students in Tier-2/3 colleges (JNTU, VTU, Anna Univ, AKTU, Pune Univ) preparing for campus &amp; off-campus drives.<br/><br/>
+            <strong>Secondary (25%):</strong> Core branch (Mech/EEE) seniors pivoting to IT/Analyst roles who need one credible AI project fast.
+          </p>
+        </div>
+        <div class="card-subtle">
+          <strong style="color:var(--cyber-pink); font-size:14px;">2. Why They Care</strong>
+          <p style="font-size:13px; color:var(--text-muted); margin-top:8px;">
+            Final-year students don't care about generic “Intro to AI” lectures or participation certificates.<br/><br/>
+            Their real urgency is <strong>Resume Differentiation</strong>: 80% of their batch lists the same copy-pasted <em>Titanic CSV / Movie Recommender</em> project on their resume right before technical interviews.
+          </p>
+        </div>
+        <div class="card-subtle">
+          <strong style="color:var(--cyber-green); font-size:14px;">3. Registration Trigger</strong>
+          <p style="font-size:13px; color:var(--text-muted); margin-top:8px;">
+            <strong>Concrete Deliverable in 60 Mins:</strong> Positioned as a hands-on <strong>Shipping Sprint</strong>.<br/><br/>
+            Before signing up, the <em>Resume Bullet Previewer</em> shows the exact GitHub project &amp; ATS bullet they will add to their resume in 60 minutes using zero-setup Google Colab.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 2 -->
+    <section class="slide">
+      <span class="slide-num">SLIDE 02 / 05 // CHANNEL PLAN &amp; ₹2,000 BUDGET</span>
+      <h2>High-Trust Campus Distribution Over Cold Paid Ads</h2>
+      <p style="font-size:13px; color:var(--text-muted); margin-bottom:14px;">
+        Cold social ads for student webinars cost ₹45–₹75 CPL (₹2,000 = ~35 signups). Concentrating budget on peer channels lowers blended CAC to <strong>₹3.67</strong>:
+      </p>
+      <table class="data-table">
+        <thead>
+          <tr><th>Channel</th><th>7-Day Execution</th><th>Budget</th><th>Target Regs</th><th>Why It Works</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>1. Class CR Micro-Bounties</strong></td>
+            <td>Onboard 25 final-year CSE/ECE Class Representatives with tracked links (`CR-JNTU-01`). Top 6 CRs bringing 25+ verified classmates earn ₹300/₹200/₹100 UPI bounties.</td>
+            <td><strong>₹1,200</strong></td>
+            <td><strong>230 Regs</strong></td>
+            <td>Official class WhatsApp groups have 95%+ read rates and peer authority.</td>
+          </tr>
+          <tr>
+            <td><strong>2. Study-Squad Viral Loop</strong></td>
+            <td>Post-signup screen gives a 1-click WhatsApp link. Inviting <strong>2 lab partners</strong> unlocks the <em>2026 ATS AI Resume &amp; 30 Placement Prompts PDF</em>.</td>
+            <td><strong>₹0</strong></td>
+            <td><strong>175 Regs</strong></td>
+            <td>Students prefer attending technical sprints with 1–2 lab or hostel friends.</td>
+          </tr>
+          <tr>
+            <td><strong>3. Coding Club Sprints</strong></td>
+            <td>Co-host with 5 Tier-2 college coding clubs using a ₹500 prize for the highest-scoring build at Minute 60.</td>
+            <td><strong>₹500</strong></td>
+            <td><strong>105 Regs</strong></td>
+            <td>College clubs actively promote weekend buildathons to their members.</td>
+          </tr>
+          <tr>
+            <td><strong>4. WhatsApp Status Seeding</strong></td>
+            <td>3 campus micro-creators post a 20-sec screen clip of the <em>Resume Bullet Previewer</em> on WhatsApp Status &amp; LinkedIn.</td>
+            <td><strong>₹300</strong></td>
+            <td><strong>35 Regs</strong></td>
+            <td>Peer visual proof drives fast mobile signups.</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- SLIDE 3 -->
+    <section class="slide">
+      <span class="slide-num">SLIDE 03 / 05 // 7-DAY FUNNEL MATH</span>
+      <h2>How 545 Registrations Roll In Across 7 Days</h2>
+      <div class="grid-2" style="margin-top:12px;">
+        <div class="card-subtle">
+          <strong style="color:var(--cyber-yellow);">📅 7-Day Rollout</strong>
+          <ul style="font-size:13px; color:var(--text-muted); margin-top:8px; padding-left:18px; line-height:1.65;">
+            <li><strong>Day 1:</strong> Launch portal; onboard 25 Class CRs &amp; 5 Club Leads → <strong>45 Regs</strong></li>
+            <li><strong>Day 2:</strong> CRs drop placement previewer link in class groups at 8 PM → <strong>115 Regs</strong></li>
+            <li><strong>Day 3:</strong> Day 2 signups invite 2 lab partners to unlock ATS Pack → <strong>95 Regs</strong></li>
+            <li><strong>Day 4:</strong> 5 Coding Clubs announce the ₹500 Live Build Challenge → <strong>90 Regs</strong></li>
+            <li><strong>Day 5:</strong> Live CR Leaderboard update drives mid-week push → <strong>80 Regs</strong></li>
+            <li><strong>Day 6:</strong> T-24h Colab warmup link shared across hostel wings → <strong>75 Regs</strong></li>
+            <li><strong>Day 7:</strong> Final 3-hour lobby alert → <strong>45 Regs (Total: 545)</strong></li>
+          </ul>
+        </div>
+        <div class="card-subtle">
+          <strong style="color:var(--cyber-cyan);">📐 Funnel Conversion Breakdown</strong>
+          <div style="margin-top:10px; display:flex; flex-direction:column; gap:8px; font-size:13px;">
+            <div style="padding:9px; border:1px solid rgba(0,240,255,0.3);"><strong>Targeted Reach:</strong> ~5,450 Final-Year Students (25 Class Groups + 5 Tech Clubs)</div>
+            <div style="padding:9px; border:1px solid rgba(0,240,255,0.3);"><strong>Portal Visits (32% CTR):</strong> ~1,745 High-Intent Clicks</div>
+            <div style="padding:9px; border:1px solid rgba(0,240,255,0.3);"><strong>Registrations (31.2% Blended):</strong> 370 Direct + 175 Squad Referrals = <strong>545 Regs</strong></div>
+            <div style="padding:9px; border:1px solid var(--cyber-green); color:var(--cyber-green);"><strong>Live Attendance (54%):</strong> ~295 Live Builders via T-24h Colab Pre-Check</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 4 -->
+    <section class="slide">
+      <span class="slide-num">SLIDE 04 / 05 // PRODUCT ARCHITECTURE</span>
+      <h2>4-Part Full-Funnel Engine (`NxtWave // BUILD60`)</h2>
+      <div class="grid-2" style="margin-top:12px;">
+        <div class="card-subtle">
+          <strong style="color:var(--cyber-yellow);">01 // Interactive Resume Bullet Previewer</strong>
+          <p style="font-size:12.5px; color:var(--text-muted); margin-top:4px;">Lets students filter by branch (CSE/ECE/Mech) &amp; target role (SDE/Analyst/GenAI) to preview the exact STAR resume bullet they earn in 60 minutes.</p>
+        </div>
+        <div class="card-subtle">
+          <strong style="color:var(--cyber-cyan);">02 // Squad Referral &amp; CR Tracker</strong>
+          <p style="font-size:12.5px; color:var(--text-muted); margin-top:4px;">Generates custom referral codes (`NXT-NAME-XX`), tracks 2-friend unlocks, displays the live CR Leaderboard, and prepares 1-click WhatsApp forwards.</p>
+        </div>
+        <div class="card-subtle">
+          <strong style="color:var(--cyber-pink);">03 // Automated WhatsApp Drip Flow</strong>
+          <p style="font-size:12.5px; color:var(--text-muted); margin-top:4px;">Covers T+0s Ticket → T-24h 1-Click Colab Pre-Check (eliminating local install drop-off) → T-15m Campus Lobby Alert → Minute-52 Repo submission.</p>
+        </div>
+        <div class="card-subtle">
+          <strong style="color:var(--cyber-green);">04 // Minute-55 AI Project Evaluator</strong>
+          <p style="font-size:12.5px; color:var(--text-muted); margin-top:4px;">Audits student system prompts &amp; Colab links across 4 rubric criteria (JSON Schema, Guardrails, Placement Fit, Reproducibility) and mints a Proof-of-Build Card.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 5 -->
+    <section class="slide">
+      <span class="slide-num">SLIDE 05 / 05 // DECISIONS &amp; NEXT 24 HOURS</span>
+      <h2>Evolution of Approach, Rejected AI Ideas &amp; +24h Roadmap</h2>
+      <div class="grid-3" style="margin-top:12px;">
+        <div class="card-subtle">
+          <strong style="color:var(--cyber-yellow);">1. First Idea → Final Solution</strong>
+          <p style="font-size:12.5px; color:var(--text-muted); margin-top:6px;">
+            Started with a simple landing page concept. Modeling the funnel showed that 500 signups mean little if 70% drop off before coding. Evolved the solution into an acquisition + viral referral + WhatsApp Colab check + auto-grader loop.
+          </p>
+        </div>
+        <div class="card-subtle">
+          <strong style="color:var(--cyber-pink);">2. Rejected AI Suggestions</strong>
+          <p style="font-size:12.5px; color:var(--text-muted); margin-top:6px;">
+            • <strong>Paid Meta/LinkedIn Ads:</strong> High CPL (₹50+) would exhaust ₹2,000 in ~35 signups.<br/>
+            • <strong>8-Field Signup Form:</strong> Asking for GitHub/LinkedIn URLs upfront kills mobile conversion.<br/>
+            • <strong>10-Friend Referral Contests:</strong> Lowering the unlock to 2 lab partners maximizes K-factor.
+          </p>
+        </div>
+        <div class="card-subtle">
+          <strong style="color:var(--cyber-green);">3. Next 24 Hours Roadmap</strong>
+          <p style="font-size:12.5px; color:var(--text-muted); margin-top:6px;">
+            1. Connect form webhook to live WhatsApp Cloud API via n8n.<br/>
+            2. Fetch `.ipynb` cells directly from student GitHub/Colab links in the Minute-55 grader.<br/>
+            3. Auto-personalize hero banner by college code (`?ref=CR-JNTU`).
+          </p>
+        </div>
+      </div>
+    </section>
+  </div>
+</body>
+</html>

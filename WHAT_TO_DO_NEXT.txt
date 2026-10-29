@@ -1,0 +1,116 @@
+===============================================================================
+  NXTWAVE GROWTH CHALLENGE (ROUND 1) — WHAT TO DO NEXT (STEP-BY-STEP GUIDE)
+===============================================================================
+
+Everything is built, styled (Cyberpunk 2077 / Edgerunners theme), and packaged!
+
+INCLUDED FILES IN THIS ZIP:
+  1. index.html                        -> Main 5-Tab Working Engine (NxtWave // BUILD60)
+  2. styles.css                        -> Cyberpunk 2077 / Edgerunners HUD Styles & Animations
+  3. app.js                            -> Interactive Logic, Breach-Protocol Text Decoder & Particle Grid
+  4. NxtWave_Growth_Plan_5_Slides.html -> 5-Slide Campaign Plan Deck (Web Version)
+  5. NxtWave_Growth_Plan_5_Slides.pdf  -> 5-Slide Campaign Plan Deck (PDF Version)
+  6. NxtWave_AI_Worklog.html           -> 3 AI Iterations & Rejections (Web Version)
+  7. NxtWave_AI_Worklog.pdf            -> 3 AI Iterations & Rejections (PDF Version)
+  8. WHAT_TO_DO_NEXT.txt               -> This complete submission guide + copy-paste answers
+
+-------------------------------------------------------------------------------
+STEP 1: DEPLOY YOUR PERMANENT LIVE LINK IN 15 SECONDS (NO CODING NEEDED)
+-------------------------------------------------------------------------------
+1. Go to: https://app.netlify.com/drop
+2. Drag and drop `NxtWave_Build60_Project.zip` (or the `homework` folder) directly onto the page.
+3. Netlify will instantly give you a permanent public HTTPS URL (e.g., https://nxtwave-build60.netlify.app).
+   - Main Working Asset URL : https://<your-site>.netlify.app
+   - 5-Slide Growth Plan URL: https://<your-site>.netlify.app/NxtWave_Growth_Plan_5_Slides.html
+   - AI Worklog URL         : https://<your-site>.netlify.app/NxtWave_AI_Worklog.html
+
+-------------------------------------------------------------------------------
+STEP 2: RECORD YOUR 3-MINUTE WALKTHROUGH VIDEO (LOOM / OBS)
+-------------------------------------------------------------------------------
+Open your live website, start screen + mic recording (using Loom.com or OBS), and click through Tabs 01 -> 05 while reading this script (~2 mins 45 secs):
+
+[0:00 - 0:35 | Open Tab 01: Register]
+"Hi team! For the NxtWave Growth Challenge, the mission is to get 500 final-year engineering students to register for 'Build Your First AI Project in 60 Minutes' within 7 days on a ₹2,000 budget.
+Final-year B.Tech students don't care about another generic 'Intro to AI' webinar or certificate—they already have a dozen of those. Their real urgency during placement season is Resume Differentiation: 80% of their batch has the same copy-pasted Titanic CSV project on their resume.
+So I positioned this as a 60-Minute Placement Shipping Sprint and built the NxtWave BUILD60 Full-Funnel Portal."
+
+[0:35 - 1:15 | Click Branch/Role dropdowns on Tab 01, then switch to Tab 02: Squad & CR Pass]
+"First, on Tab 1, students can select their branch—like CSE, ECE, or Mech—and target role to preview the exact ATS-ready resume bullet they will earn in 60 minutes.
+Second, to hit 500 registrations on ₹2,000, I rejected paid Instagram ads because student webinar CPL is ₹50+, which would barely get 35 signups. Instead, on Tab 2, we use a two-part distribution engine:
+1. ₹1,200 goes into performance micro-bounties for 25 final-year Class Representatives (CRs) tracked on this live leaderboard, bringing ~230 registrations from official class WhatsApp groups.
+2. Every student who signs up gets a Squad Referral Code where inviting just 2 lab partners unlocks the 2026 ATS Resume & 30 AI Interview Prompts Pack, driving 175 viral referrals at ₹0 CAC."
+
+[1:15 - 1:55 | Switch to Tab 03: WhatsApp Flow and click buttons 1, 2, 3, 4]
+"Third, free student workshops usually suffer 70% attendance drop-off, and college students rarely read email. So on Tab 3, we have an automated WhatsApp flow:
+At T+0 seconds, it sends their pass and squad unlock link. At T-24 hours, it removes setup anxiety by sending a 1-click Google Colab starter notebook they verify in 10 seconds in their browser. Then at T-15 minutes, it sends a campus peer alert showing how many classmates from their college are already in the lobby."
+
+[1:55 - 2:35 | Switch to Tab 04: Code Grader and click Weak Prompt then Strong Build]
+"Fourth, to evaluate 500 student projects at Minute 55 of the live session, Tab 4 is an Automated AI Project Grader. Students paste their Colab link and system prompt. If a prompt lacks structure, it flags missing schema and guardrails. When they enforce JSON output keys and anti-hallucination constraints, it verifies the build (92/100) and mints a Proof-of-Build card they can share on LinkedIn."
+
+[2:35 - 3:00 | Switch to Tab 05: Metrics]
+"Finally, Tab 5 breaks down the 7-day channel math—reaching 545 registrations at a ₹3.67 blended CAC—along with our 3 A/B experiments, 5-slide campaign deck, and AI worklog linked in the top bar. Thanks for watching!"
+
+Upload the video to Loom or Google Drive (set access to "Anyone with the link can view").
+
+-------------------------------------------------------------------------------
+STEP 3: EXACT COPY-PASTE ANSWERS FOR THE GOOGLE FORM
+-------------------------------------------------------------------------------
+Form Link: https://docs.google.com/forms/d/e/1FAIpQLSeVCefRrx6gdC1k_woSOLWyPeVmZCZr20kG4hf4zGm5yGXKYA/viewform
+
+1. Full Name           : [Your Name]
+2. Mobile number       : [Your 10-digit number without +91 or spaces]
+3. College / University: [Your College Name]
+4. Year of Graduation  : [Select 2026 / 2025 / 2027]
+
+-------------------------------------------------------------------------------
+FIELD: 1. Growth Plan (Max 5 slides / 2 pages)
+-------------------------------------------------------------------------------
+https://<your-site>.netlify.app/NxtWave_Growth_Plan_5_Slides.html (or paste your Google Drive link to NxtWave_Growth_Plan_5_Slides.pdf)
+
+-------------------------------------------------------------------------------
+FIELD: 2. Working Asset Link — Short answer / URL
+-------------------------------------------------------------------------------
+https://<your-site>.netlify.app
+
+-------------------------------------------------------------------------------
+FIELD: 3. Your 3 Tests — Paragraph (Copy-Paste Below)
+-------------------------------------------------------------------------------
+TEST 1: Acquisition Hook Framing (Placement Resume Utility vs. Workshop Certificate)
+• Hypothesis: Final-year B.Tech students suffer from "webinar certificate fatigue" but experience acute urgency over having generic copy-paste projects (like Titanic CSV) on their resume right before campus drives.
+• What I Would Test: Run an A/B split across 10 Class CR WhatsApp groups. Group A receives a message pitching "Free 60-Min AI Workshop + Certificate." Group B receives our pain-point hook: "Stop putting Titanic CSV on your placement resume — preview the exact ATS resume bullet & GitHub repo you'll ship in 60 mins" leading to the Interactive Resume Bullet Previewer (Tab 1).
+• Metric: WhatsApp Link-Click-to-Registration Conversion Rate (%) (target: lift from ~11% baseline to >22%).
+
+TEST 2: Viral Referral Threshold (2 Lab Partners vs. 5 Friends Leaderboard)
+• Hypothesis: Asking a student to refer 5–10 friends feels like unpaid marketing work so 95% ignore it, whereas asking them to invite just 2 lab/hostel partners feels like forming a natural study squad.
+• What I Would Test: Split newly registered students on the post-registration screen (Tab 2). Cohort A needs 5 referrals to unlock the "2026 ATS AI Resume & 30 Placement Prompts PDF." Cohort B unlocks the exact same pack at just 2 referrals.
+• Metric: Viral K-Factor (referred signups generated per direct registrant within 24 hours).
+
+TEST 3: Show-Up Activation (T-24h 1-Click Colab Warmup vs. Standard Reminder)
+• Hypothesis: Free student coding workshops suffer 65–75% attendance drop-off because students fear local setup friction ("I haven't installed Python/API keys"). Removing setup friction 24 hours early creates psychological commitment.
+• What I Would Test: At T-24 hours via our WhatsApp Flow (Tab 3), send Cohort A a standard reminder. Send Cohort B a "10-Second Pre-Flight Check" with a 1-click Google Colab starter link where they run 1 cell in their browser and reply "READY" to lock in their free sandbox token.
+• Metric: Registration-to-Live-Workshop Show-Up Rate (%) and Minute-55 Project Submission Rate (%).
+
+-------------------------------------------------------------------------------
+FIELD: 4. AI Worklog — Short answer / URL
+-------------------------------------------------------------------------------
+https://<your-site>.netlify.app/NxtWave_AI_Worklog.html (or paste your Google Drive link to NxtWave_AI_Worklog.pdf)
+
+-------------------------------------------------------------------------------
+FIELD: 3-Minute Video — Short answer / URL
+-------------------------------------------------------------------------------
+[Paste your Loom / Google Drive / Unlisted YouTube video link here]
+
+-------------------------------------------------------------------------------
+FIELD: What did AI suggest you while building this that you deliberately rejected and why?
+-------------------------------------------------------------------------------
+While building the campaign plan and product portal, I deliberately rejected three major AI suggestions where generic LLM advice conflicted with real-world Indian engineering college behavior:
+
+1. Rejected AI's Paid Ad Budget Split (₹1,200 Meta Ads + ₹500 LinkedIn Ads):
+AI initially suggested running Instagram/Facebook lead ads and LinkedIn sponsored messages. I rejected this completely. LinkedIn has a ~₹800/day minimum spend, while cold EdTech webinar ads on Meta take 48+ hours in the learning phase and cost ₹45–₹75 per student signup (meaning ₹2,000 would barely get ~35 registrations). Instead, I allocated ₹1,200 into 6 performance micro-bounties (₹300/₹200/₹100) for 25 final-year Class Representatives (CRs) and ₹500 into 5 college coding club co-hosted sprints. A message posted by a Class CR inside an official final-year placement WhatsApp group carries peer authority, costs ~₹5.21 per signup, and gets read within 15 minutes.
+
+2. Rejected "Certificate of Completion" Positioning & an 8-Field Registration Form:
+AI generated generic hype copy ("Master Artificial Intelligence in 60 Minutes & Earn a Free Certificate!") alongside an 8-field form asking for Email, CGPA, LinkedIn URL, and GitHub URL. I rejected both. Final-year students already have dozens of webinar certificates that didn't help in placements; what actually drives them is replacing generic Titanic/Iris projects on their resume. I rewrote the hook around placement resume utility, built an interactive Resume Bullet Previewer on the hero screen, and stripped the form down to 4 mobile-friendly fields + WhatsApp number.
+
+3. Rejected Leaderboard-Only Referrals & Post-Workshop ZIP Code Uploads:
+AI suggested a "Top 3 referrers win vouchers" contest and having students upload ZIP files of their code after the workshop. I rejected leaderboard-only referrals because 98% of students know they won't beat campus influencers; instead, I added a guaranteed 2-partner Study-Squad unlock (referring just 2 lab partners unlocks the ATS Resume Prompt Pack immediately). Finally, because 500 students won't zip files at 8 PM on a Sunday, I built an in-browser Automated Rubric Grader (Tab 4) where students paste their Colab link + system prompt at Minute 52 to get an instant score out of 100 and a shareable LinkedIn Proof-of-Build card.
+===============================================================================

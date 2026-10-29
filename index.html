@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NxtWave // BUILD60 — Ship Your First AI Project in 60 Minutes</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- Cyberpunk 2077 / Edgerunners Animated Canvas & Scanline Layer -->
+  <canvas id="cyberCanvas"></canvas>
+  <div class="scanline-overlay"></div>
+  <div class="laser-line"></div>
+
+  <!-- Clean Product Telemetry Top Bar -->
+  <div class="top-hud-bar">
+    <div>
+      <span class="hud-tag">LIVE SPRINT</span>
+      <span>SUNDAY, 7:00 PM IST // FREE FOR FINAL-YEAR B.TECH (2025–2027)</span>
+    </div>
+    <div class="top-hud-links">
+      <a href="NxtWave_Growth_Plan_5_Slides.html" target="_blank">⚡ CAMPAIGN DECK</a>
+      <a href="NxtWave_AI_Worklog.html" target="_blank">🧠 WORKLOG</a>
+    </div>
+  </div>
+
+  <!-- Main Header & Navigation -->
+  <header class="navbar">
+    <div class="brand">
+      <div class="brand-logo">N↗</div>
+      <div class="brand-text">
+        <h1 id="brandTitle">NXTWAVE // BUILD60</h1>
+        <span>60-MIN HANDS-ON AI PROJECT SPRINT</span>
+      </div>
+    </div>
+
+    <nav class="module-tabs" role="tablist">
+      <button class="tab-btn active" onclick="switchTab('funnel')">
+        <span class="tab-step">01</span> Register
+      </button>
+      <button class="tab-btn" onclick="switchTab('referral')">
+        <span class="tab-step">02</span> Squad & CR Pass
+      </button>
+      <button class="tab-btn" onclick="switchTab('whatsapp')">
+        <span class="tab-step">03</span> WhatsApp Flow
+      </button>
+      <button class="tab-btn" onclick="switchTab('evaluator')">
+        <span class="tab-step">04</span> Code Grader
+      </button>
+      <button class="tab-btn" onclick="switchTab('playbook')">
+        <span class="tab-step">05</span> Metrics
+      </button>
+    </nav>
+  </header>
+
+  <main class="container">
+
+    <!-- =================================================================== -->
+    <!-- TAB 1: STUDENT REGISTRATION & RESUME BULLET PREVIEWER               -->
+    <!-- =================================================================== -->
+    <section id="tab-funnel" class="tab-panel active">
+      <div class="hero-grid">
+        
+        <!-- Left: Value Prop + Resume Previewer -->
+        <div class="card">
+          <div class="eyebrow">
+            <span class="live-dot"></span>
+            BATCH 01 // ZERO LOCAL SETUP • GOOGLE COLAB + GEMINI API
+          </div>
+
+          <h2 class="hero-title">
+            Stop putting <span class="serif-italic">“Titanic CSV”</span> on your placement resume.
+          </h2>
+
+          <p class="hero-subtitle">
+            Ship a working AI application in 60 minutes. Write structured prompts, connect live APIs in Google Colab, deploy a public link, and walk away with a verified GitHub repo before campus placements.
+          </p>
+
+          <!-- Interactive Resume Bullet Previewer -->
+          <div class="previewer-box">
+            <div class="previewer-header">
+              <span>⚡ PREVIEW WHAT YOU SHIP IN 60 MINS</span>
+              <span style="color:var(--cyber-green);">ATS-READY OUTPUT</span>
+            </div>
+
+            <div class="selector-row">
+              <select id="branchSelect" onchange="updateResumePreview()">
+                <option value="cse">CSE / IT / AI-DS</option>
+                <option value="ece">ECE / EEE / Instrumentation</option>
+                <option value="mech">Mech / Civil / Core</option>
+              </select>
+              <select id="roleSelect" onchange="updateResumePreview()">
+                <option value="sde">Role: SDE / Full-Stack</option>
+                <option value="analyst">Role: Data / Business Analyst</option>
+                <option value="genai">Role: AI / Product Intern</option>
+              </select>
+            </div>
+
+            <div class="resume-output" id="resumePreviewText">
+              <strong>📄 RESUME PROJECT BULLET UNLOCKED AT MIN 60:</strong>
+              <span id="bulletTextSpan">“Built & deployed an AI Code-Review & PR Bug Triage Agent using Gemini Flash API & Python; automated static edge-case detection across 50+ test snippets with structured JSON output and &lt;1.2s latency.”</span>
+            </div>
+          </div>
+
+          <!-- 60-Min Sprint Timeline -->
+          <div style="display:grid; grid-template-columns: repeat(4, 1fr); gap:10px; margin-top:18px;">
+            <div class="card-subtle" style="padding:11px;">
+              <div style="font-family:'JetBrains Mono'; font-size:10.5px; color:var(--cyber-yellow); font-weight:700;">00–15 MIN</div>
+              <div style="font-weight:700; font-size:13px; margin-top:2px;">Colab Boot</div>
+              <div style="font-size:11px; color:var(--text-muted);">1-click notebook fork.</div>
+            </div>
+            <div class="card-subtle" style="padding:11px;">
+              <div style="font-family:'JetBrains Mono'; font-size:10.5px; color:var(--cyber-yellow); font-weight:700;">15–35 MIN</div>
+              <div style="font-weight:700; font-size:13px; margin-top:2px;">API + Schema</div>
+              <div style="font-size:11px; color:var(--text-muted);">JSON prompt & guardrails.</div>
+            </div>
+            <div class="card-subtle" style="padding:11px;">
+              <div style="font-family:'JetBrains Mono'; font-size:10.5px; color:var(--cyber-yellow); font-weight:700;">35–50 MIN</div>
+              <div style="font-weight:700; font-size:13px; margin-top:2px;">Live UI</div>
+              <div style="font-size:11px; color:var(--text-muted);">Gradio public web link.</div>
+            </div>
+            <div class="card-subtle" style="padding:11px;">
+              <div style="font-family:'JetBrains Mono'; font-size:10.5px; color:var(--cyber-green); font-weight:700;">50–60 MIN</div>
+              <div style="font-weight:700; font-size:13px; margin-top:2px;">Code Audit</div>
+              <div style="font-size:11px; color:var(--text-muted);">Auto-grader & certificate.</div>
+            </div>
+          </div>
+
+          <div class="stats-strip">
+            <div class="stat-item">
+              <div class="stat-value" id="liveRegCounter">418 / 500</div>
+              <div class="stat-label">SEATS CLAIMED</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-value">₹0 FREE</div>
+              <div class="stat-label">STUDENT ACCESS</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-value">60 MINS</div>
+              <div class="stat-label">SHIP LIVE REPO</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Registration Form -->
+        <div class="card">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px;">
+            <span class="code-tag">PASS // REGISTRATION</span>
+            <span style="font-family:'JetBrains Mono'; font-size:11.5px; font-weight:700; color:var(--cyber-pink);">⚡ 82 SEATS REMAINING</span>
+          </div>
+
+          <h3 style="font-family:'Chakra Petch'; font-size:23px; margin-bottom:6px;">Lock Your Sandbox Seat</h3>
+          <p style="font-size:13px; color:var(--text-muted); margin-bottom:16px;">
+            Receive your pre-configured Colab starter link and Squad Referral Code on WhatsApp.
+          </p>
+
+          <form id="regForm" onsubmit="handleRegistration(event)">
+            <div class="form-group">
+              <label for="regName">Full Name</label>
+              <input type="text" id="regName" class="form-input" placeholder="e.g. Rahul Verma" required />
+            </div>
+
+            <div class="form-group">
+              <label for="regPhone">WhatsApp Number (10 Digits)</label>
+              <input type="tel" id="regPhone" class="form-input" placeholder="9876543210" pattern="[6-9][0-9]{9}" required />
+            </div>
+
+            <div style="display:grid; grid-template-columns: 1.3fr 0.7fr; gap:10px;">
+              <div class="form-group">
+                <label for="regCollege">College / University</label>
+                <input type="text" id="regCollege" class="form-input" placeholder="AUCE / AUCE(w)" required />
+              </div>
+              <div class="form-group">
+                <label for="regGrad">Batch</label>
+                <select id="regGrad" class="form-select">
+                  <option value="2026">2026</option>
+                  <option value="2025">2025</option>
+                  <option value="2027">2027</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="regRef">Referral / Class CR Code (Optional)</label>
+              <input type="text" id="regRef" class="form-input" placeholder="CR-AUCE-01" />
+            </div>
+
+            <button type="submit" class="btn-primary">
+              INITIALIZE SEAT & GET SQUAD CODE →
+            </button>
+          </form>
+
+          <!-- Post-Registration Squad Unlock Card -->
+          <div id="postRegCard" style="display:none; margin-top:18px; padding:16px; background:rgba(0,255,157,0.08); border:1.5px solid #00FF9D; clip-path:var(--clip-btn);">
+            <div style="font-weight:800; color:#00FF9D; font-size:14px; margin-bottom:4px;">
+              ✅ SEAT LOCKED // SQUAD CODE: <span id="generatedRefCode" class="code-tag">NXT-RAHUL-88</span>
+            </div>
+            <p style="font-size:12.5px; color:#E2F1FF; margin-bottom:12px;">
+              Invite <strong>2 lab partners</strong> with your link to unlock the <em>2026 ATS AI Resume &amp; 30 Placement Prompts Pack</em>.
+            </p>
+            <div style="display:flex; gap:8px;">
+              <button class="btn-whatsapp" style="flex:1;" onclick="shareOnWhatsApp()">
+                📲 Share on WhatsApp
+              </button>
+              <button class="btn-secondary" onclick="switchTab('referral')">
+                Squad Status →
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =================================================================== -->
+    <!-- TAB 2: SQUAD REFERRAL TRACKER & CAMPUS CR LEADERBOARD               -->
+    <!-- =================================================================== -->
+    <section id="tab-referral" class="tab-panel">
+      <div class="hero-grid">
+        
+        <div class="card">
+          <div class="eyebrow">🚀 STUDY-SQUAD UNLOCK &amp; CLASS FORWARDER</div>
+          <h2 style="font-family:'Chakra Petch'; font-size:27px; margin-bottom:8px;">
+            Squad Referral Progress
+          </h2>
+          <p style="font-size:13.5px; color:var(--text-muted); margin-bottom:18px;">
+            Bring 2 batchmates from your lab group or hostel wing to unlock the placement prep kit immediately.
+          </p>
+
+          <div class="card-subtle" style="margin-bottom:20px;">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
+              <strong style="font-size:13.5px;">Squad Members Joined: <span id="refCountDisplay" style="color:var(--cyber-yellow);">1</span> / 5</strong>
+              <button class="btn-secondary" style="padding:5px 10px; font-size:11.5px;" onclick="simulateFriendJoin()">
+                + Simulate Referral Join
+              </button>
+            </div>
+
+            <div class="progress-track">
+              <div class="progress-fill" id="refProgressBar" style="width: 20%;"></div>
+            </div>
+
+            <div style="display:grid; grid-template-columns: repeat(3, 1fr); gap:10px; margin-top:12px; font-size:12px;">
+              <div id="tier1Box" style="padding:10px; background:rgba(0,255,157,0.08); border:1.5px solid #00FF9D; clip-path:var(--clip-btn);">
+                <strong style="color:#00FF9D;">✅ 1 Joined</strong><br/>
+                Colab Starter Kit
+              </div>
+              <div id="tier2Box" style="padding:10px; background:rgba(0,240,255,0.05); border:1px solid rgba(0,240,255,0.3); clip-path:var(--clip-btn);">
+                <strong>🔒 2 Joined</strong><br/>
+                ATS Resume + 30 AI Qs
+              </div>
+              <div id="tier3Box" style="padding:10px; background:rgba(0,240,255,0.05); border:1px solid rgba(0,240,255,0.3); clip-path:var(--clip-btn);">
+                <strong>🔒 5 Joined</strong><br/>
+                Live Resume Audit
+              </div>
+            </div>
+          </div>
+
+          <h3 style="font-family:'Chakra Petch'; font-size:16px; margin-bottom:8px;">
+            📲 Quick Invite Message Generator
+          </h3>
+          <div style="display:flex; gap:8px; margin-bottom:10px;">
+            <button class="btn-secondary" onclick="setForwardTemplate('cr')">Class CR Notice</button>
+            <button class="btn-secondary" onclick="setForwardTemplate('hostel')">Hostel / Lab Squad</button>
+            <button class="btn-secondary" onclick="setForwardTemplate('club')">Coding Club</button>
+          </div>
+          <textarea id="waCopyBox" class="form-textarea" rows="5" readonly></textarea>
+          <div style="display:flex; gap:10px; margin-top:10px;">
+            <button class="btn-primary" style="flex:1;" onclick="copyWhatsAppMessage()">
+              📋 COPY INVITE MESSAGE
+            </button>
+            <button class="btn-whatsapp" onclick="shareOnWhatsApp()">
+              WhatsApp ↗
+            </button>
+          </div>
+        </div>
+
+        <!-- Campus CR Leaderboard -->
+        <div class="card">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+            <span class="code-tag">CAMPUS LEADERBOARD</span>
+            <span style="font-family:'JetBrains Mono'; font-size:12px; color:var(--cyber-green); font-weight:700;">₹1,200 CR BOUNTY POOL</span>
+          </div>
+          <h3 style="font-family:'Chakra Petch'; font-size:21px; margin-bottom:6px;">Top Class Representatives &amp; Club Leads</h3>
+          <p style="font-size:13px; color:var(--text-muted); margin-bottom:14px;">
+            Verified registrations tracked via unique campus referral codes.
+          </p>
+
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Rank</th>
+                <th>Rep / Lead</th>
+                <th>Campus</th>
+                <th>Code</th>
+                <th>Verified</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong style="color:var(--cyber-yellow);">#01</strong></td>
+                <td>Karthik R. (CSE CR)</td>
+                <td>AUCE</td>
+                <td><span class="code-tag">CR-AUCE-01</span></td>
+                <td><strong>46</strong></td>
+              </tr>
+              <tr>
+                <td><strong style="color:var(--cyber-cyan);">#02</strong></td>
+                <td>Sneha K. (AI Club)</td>
+                <td>VIT Vellore</td>
+                <td><span class="code-tag">CLB-VIT-04</span></td>
+                <td><strong>39</strong></td>
+              </tr>
+              <tr>
+                <td><strong style="color:var(--cyber-green);">#03</strong></td>
+                <td>Amanpreet S. (IT CR)</td>
+                <td>CGC Landran</td>
+                <td><span class="code-tag">CR-CGC-07</span></td>
+                <td><strong>34</strong></td>
+              </tr>
+              <tr>
+                <td>#04</td>
+                <td>Rohan D. (ECE CR)</td>
+                <td>PICT Pune</td>
+                <td><span class="code-tag">CR-PICT-11</span></td>
+                <td><strong>29</strong></td>
+              </tr>
+              <tr>
+                <td>#05</td>
+                <td>Divya M. (Placement Rep)</td>
+                <td>SRM Chennai</td>
+                <td><span class="code-tag">CR-SRM-15</span></td>
+                <td><strong>26</strong></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =================================================================== -->
+    <!-- TAB 3: WHATSAPP AUTOMATION FLOW                                     -->
+    <!-- =================================================================== -->
+    <section id="tab-whatsapp" class="tab-panel">
+      <div class="hero-grid">
+        
+        <div class="card">
+          <div class="eyebrow">💬 AUTOMATED WHATSAPP WORKFLOW</div>
+          <h2 style="font-family:'Chakra Petch'; font-size:27px; margin-bottom:8px;">
+            Zero-Dropoff Attendance Pipeline
+          </h2>
+          <p style="font-size:13.5px; color:var(--text-muted); margin-bottom:18px;">
+            Automated triggers keep show-up rates above 52% by verifying the student's Google Colab setup 24 hours before the live sprint.
+          </p>
+
+          <div style="display:flex; flex-direction:column; gap:12px;">
+            <div class="card-subtle">
+              <strong style="color:var(--cyber-yellow);">01 // T+0s Instant Pass &amp; Squad Unlock</strong>
+              <p style="font-size:12.5px; color:var(--text-muted); margin-top:4px;">
+                Delivers seat confirmation + personal referral link immediately on signup.
+              </p>
+            </div>
+            <div class="card-subtle">
+              <strong style="color:var(--cyber-cyan);">02 // T-24h 1-Click Colab Pre-Check</strong>
+              <p style="font-size:12.5px; color:var(--text-muted); margin-top:4px;">
+                Sends a browser-based starter notebook so students verify setup in 10 seconds with zero local installation.
+              </p>
+            </div>
+            <div class="card-subtle">
+              <strong style="color:var(--cyber-pink);">03 // T-15m Campus Peer Alert</strong>
+              <p style="font-size:12.5px; color:var(--text-muted); margin-top:4px;">
+                Notifies students how many batchmates from their college are live in the lobby.
+              </p>
+            </div>
+            <div class="card-subtle">
+              <strong style="color:var(--cyber-green);">04 // Min-52 Live Repo Submission</strong>
+              <p style="font-size:12.5px; color:var(--text-muted); margin-top:4px;">
+                Students reply with their Colab link to trigger the automated rubric audit and unlock their certificate.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div class="wa-phone">
+            <div class="wa-header">
+              <div class="wa-header-left">
+                <div class="wa-avatar">N↗</div>
+                <div>
+                  <div style="font-family:'Chakra Petch'; font-weight:700; font-size:14px;">NXTWAVE // BUILD60 BOT ✓</div>
+                  <div style="font-size:11px; color:var(--cyber-cyan);">AUTOMATED WHATSAPP FLOW</div>
+                </div>
+              </div>
+              <span class="code-tag">ONLINE</span>
+            </div>
+
+            <div class="wa-messages" id="waChatFeed"></div>
+
+            <div class="wa-controls">
+              <button class="btn-secondary" style="font-size:11px; padding:6px 10px;" onclick="triggerWaStage(1)">1. T+0s Ticket</button>
+              <button class="btn-secondary" style="font-size:11px; padding:6px 10px;" onclick="triggerWaStage(2)">2. T-24h Colab</button>
+              <button class="btn-secondary" style="font-size:11px; padding:6px 10px;" onclick="triggerWaStage(3)">3. T-15m Lobby</button>
+              <button class="btn-secondary" style="font-size:11px; padding:6px 10px;" onclick="triggerWaStage(4)">4. Min-55 Grade</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =================================================================== -->
+    <!-- TAB 4: AUTOMATED AI PROJECT EVALUATOR                               -->
+    <!-- =================================================================== -->
+    <section id="tab-evaluator" class="tab-panel">
+      <div class="hero-grid">
+        
+        <div class="card">
+          <div class="eyebrow">🤖 MINUTE-55 LIVE PROJECT GRADER</div>
+          <h2 style="font-family:'Chakra Petch'; font-size:26px; margin-bottom:6px;">
+            Automated AI Project Evaluator
+          </h2>
+          <p style="font-size:13.5px; color:var(--text-muted); margin-bottom:16px;">
+            Submit your workshop Colab link and system prompt to verify schema safety, guardrails, and deployment readiness.
+          </p>
+
+          <div style="display:flex; gap:8px; margin-bottom:14px; flex-wrap:wrap;">
+            <button class="btn-secondary" style="padding:5px 10px; font-size:11.5px;" onclick="loadSampleProject('strong')">⚡ Load Strong Build (92/100)</button>
+            <button class="btn-secondary" style="padding:5px 10px; font-size:11.5px;" onclick="loadSampleProject('weak')">⚠️ Load Weak Prompt (58/100)</button>
+          </div>
+
+          <div class="form-group">
+            <label>Project Title</label>
+            <input type="text" id="evalTitle" class="form-input" value="Smart Placement Resume-to-JD Gap Analyzer (Python + Gemini Flash)" />
+          </div>
+
+          <div class="form-group">
+            <label>Google Colab / GitHub URL</label>
+            <input type="url" id="evalRepo" class="form-input" value="https://colab.research.google.com/drive/1nxtwave-build60-rag-demo" />
+          </div>
+
+          <div class="form-group">
+            <label>System Prompt &amp; Schema Definition</label>
+            <textarea id="evalPrompt" class="form-textarea" rows="5">You are a strict technical recruiter evaluating a final-year CSE resume against a target SDE Job Description.
+Input: {{resume_text}} and {{jd_text}}.
+Output strictly valid JSON with keys: "match_score" (0-100), "missing_keywords" (array), "rewritten_project_bullets" (array of 3 STAR-formatted bullets with quantified impact). Reject hallucinated skills not present in resume_text.</textarea>
+          </div>
+
+          <button class="btn-primary" onclick="runProjectEvaluator()">
+            ⚡ RUN RUBRIC AUDIT &amp; MINT PROOF-OF-BUILD
+          </button>
+        </div>
+
+        <div class="card" id="evalResultCard">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px;">
+            <span class="code-tag">AUDIT TELEMETRY</span>
+            <span id="evalBadge" style="font-family:'Orbitron'; font-weight:800; font-size:15px; color:var(--cyber-green);">SCORE: 92 / 100 (VERIFIED)</span>
+          </div>
+
+          <div class="rubric-bar">
+            <div class="rubric-bar-top">
+              <span>1. Structured JSON Schema Control</span>
+              <span id="scoreSchema" style="color:var(--cyber-cyan);">24 / 25</span>
+            </div>
+            <div class="progress-track" style="height:9px;"><div id="barSchema" class="progress-fill" style="width:96%;"></div></div>
+          </div>
+
+          <div class="rubric-bar">
+            <div class="rubric-bar-top">
+              <span>2. Anti-Hallucination Guardrails</span>
+              <span id="scoreGuard" style="color:var(--cyber-cyan);">23 / 25</span>
+            </div>
+            <div class="progress-track" style="height:9px;"><div id="barGuard" class="progress-fill" style="width:92%;"></div></div>
+          </div>
+
+          <div class="rubric-bar">
+            <div class="rubric-bar-top">
+              <span>3. Placement &amp; Real-World Utility</span>
+              <span id="scoreRelevance" style="color:var(--cyber-cyan);">24 / 25</span>
+            </div>
+            <div class="progress-track" style="height:9px;"><div id="barRelevance" class="progress-fill" style="width:96%;"></div></div>
+          </div>
+
+          <div class="rubric-bar">
+            <div class="rubric-bar-top">
+              <span>4. Repo &amp; Colab Reproducibility</span>
+              <span id="scoreDeploy" style="color:var(--cyber-cyan);">21 / 25</span>
+            </div>
+            <div class="progress-track" style="height:9px;"><div id="barDeploy" class="progress-fill" style="width:84%;"></div></div>
+          </div>
+
+          <div class="card-subtle" style="margin-top:14px; font-size:12.5px;" id="evalFeedbackBox">
+            <strong style="color:var(--cyber-yellow);">💡 DIAGNOSTIC:</strong> Strong schema enforcement (`match_score`, `missing_keywords`) and explicit anti-hallucination constraints. Ready for GitHub push &amp; placement resume inclusion.
+          </div>
+
+          <div class="cert-card">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+              <span style="font-family:'JetBrains Mono'; font-size:11px; color:var(--cyber-yellow);">NXTWAVE BUILD60 // PROOF-OF-BUILD</span>
+              <span style="font-family:'JetBrains Mono'; font-size:11px; color:var(--cyber-green);">ID #NXT-60-9482</span>
+            </div>
+            <h4 id="certProjectTitle" style="font-family:'Chakra Petch'; font-size:18px; margin-bottom:6px; color:#fff;">
+              Smart Placement Resume-to-JD Gap Analyzer
+            </h4>
+            <p style="font-size:12px; color:var(--text-muted); margin-bottom:12px;">
+              Verified 60-minute build using Gemini Flash API &amp; structured JSON prompting.
+            </p>
+            <button class="btn-secondary" style="font-size:12px; padding:7px 14px;" onclick="alert('Copied Verified Certificate Link & LinkedIn Post to Clipboard!')">
+              🔗 SHARE PROOF-OF-BUILD ON LINKEDIN
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =================================================================== -->
+    <!-- TAB 5: CAMPAIGN TELEMETRY & A/B EXPERIMENTS                         -->
+    <!-- =================================================================== -->
+    <section id="tab-playbook" class="tab-panel">
+      <div class="card" style="margin-bottom:24px;">
+        <div class="eyebrow">📊 7-DAY CAMPAIGN TELEMETRY • ₹2,000 BUDGET → 545 REGISTRATIONS</div>
+        <h2 style="font-family:'Chakra Petch'; font-size:27px; margin-bottom:10px;">
+          Channel Distribution &amp; Unit Economics
+        </h2>
+
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Channel</th>
+              <th>7-Day Execution</th>
+              <th>Budget</th>
+              <th>Reach</th>
+              <th>Conv %</th>
+              <th>Registrations</th>
+              <th>CAC</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>1. Class CR Micro-Bounties</strong><br/><span style="font-size:11.5px; color:var(--text-muted);">25 Tier-2/3 Final-Year CRs</span></td>
+              <td>Tracked links (`CR-CLG-XX`) seeded in official class placement WhatsApp groups via 6 performance bounties.</td>
+              <td><strong>₹1,200</strong></td>
+              <td>2,200</td>
+              <td>10.5%</td>
+              <td><strong>230</strong></td>
+              <td>₹5.21</td>
+            </tr>
+            <tr>
+              <td><strong>2. Study-Squad Viral Loop</strong><br/><span style="font-size:11.5px; color:var(--text-muted);">2-Partner Instant Unlock</span></td>
+              <td>Registrants invite 2 lab partners to unlock the <em>ATS Resume &amp; 30 AI Interview Prompts Pack</em> (K = 0.42).</td>
+              <td><strong>₹0</strong></td>
+              <td>950</td>
+              <td>18.4%</td>
+              <td><strong>175</strong></td>
+              <td>₹0.00</td>
+            </tr>
+            <tr>
+              <td><strong>3. Coding Club Sprints</strong><br/><span style="font-size:11.5px; color:var(--text-muted);">5 Campus Tech Clubs</span></td>
+              <td>Co-hosted weekend sprint poster + ₹500 prize for top club builder at Minute 60.</td>
+              <td><strong>₹500</strong></td>
+              <td>1,400</td>
+              <td>7.5%</td>
+              <td><strong>105</strong></td>
+              <td>₹4.76</td>
+            </tr>
+            <tr>
+              <td><strong>4. Student Status Reels</strong><br/><span style="font-size:11.5px; color:var(--text-muted);">3 Campus Micro-Creators</span></td>
+              <td>20-sec screen recording of the <em>Resume Bullet Previewer</em> on WhatsApp Status &amp; LinkedIn.</td>
+              <td><strong>₹300</strong></td>
+              <td>900</td>
+              <td>3.8%</td>
+              <td><strong>35</strong></td>
+              <td>₹8.57</td>
+            </tr>
+            <tr style="background:rgba(252, 238, 10, 0.12); color:var(--cyber-yellow); font-weight:700;">
+              <td>TOTAL (7 DAYS)</td>
+              <td>4-Channel Peer &amp; Viral Stack</td>
+              <td>₹2,000</td>
+              <td>5,450</td>
+              <td>10.0%</td>
+              <td>545 Regs</td>
+              <td>₹3.67</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="hero-grid">
+        <div class="card">
+          <span class="code-tag">EXPERIMENTS</span>
+          <h3 style="font-family:'Chakra Petch'; font-size:21px; margin:8px 0 12px;">3 High-Leverage Growth Tests</h3>
+          
+          <div class="card-subtle" style="margin-bottom:10px;">
+            <strong style="color:var(--cyber-yellow);">01 // Hook Framing (Resume Bullet vs. Certificate)</strong><br/>
+            <span style="font-size:12.5px;">• <strong>Hypothesis:</strong> Final-year students ignore generic certificates but act urgently to fix weak placement resumes.<br/>
+            • <strong>Test:</strong> A/B test WhatsApp message pitching <em>“Free AI Certificate”</em> vs. <em>“Preview the exact ATS resume bullet you'll ship in 60 mins.”</em><br/>
+            • <strong>Metric:</strong> Link-Click-to-Registration Conversion Rate (%).</span>
+          </div>
+
+          <div class="card-subtle" style="margin-bottom:10px;">
+            <strong style="color:var(--cyber-cyan);">02 // Referral Threshold (2 Partners vs. 5 Friends)</strong><br/>
+            <span style="font-size:12.5px;">• <strong>Hypothesis:</strong> Inviting 2 lab partners feels like forming a study group; inviting 5 feels like marketing.<br/>
+            • <strong>Test:</strong> Unlock the <em>ATS Prompt Pack</em> at 2 referrals vs. 5 referrals.<br/>
+            • <strong>Metric:</strong> Viral K-Factor (referred signups per direct registrant).</span>
+          </div>
+
+          <div class="card-subtle">
+            <strong style="color:var(--cyber-green);">03 // Show-Up Activation (T-24h Colab Warmup)</strong><br/>
+            <span style="font-size:12.5px;">• <strong>Hypothesis:</strong> Removing setup anxiety 24 hours early lifts live attendance.<br/>
+            • <strong>Test:</strong> T-24h 1-click Google Colab check vs. plain text link reminder.<br/>
+            • <strong>Metric:</strong> Live Workshop Show-Up Rate (%).</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <span class="code-tag">STRATEGY NOTES</span>
+          <h3 style="font-family:'Chakra Petch'; font-size:21px; margin:8px 0 12px;">Key Strategic Trade-offs</h3>
+
+          <div class="card-subtle" style="margin-bottom:10px;">
+            <strong style="color:var(--cyber-pink);">01 // Peer Micro-Bounties Over Cold Meta Ads</strong>
+            <p style="font-size:12.5px; color:var(--text-muted); margin-top:4px;">
+              Cold EdTech webinar ads cost ₹45–₹75 CPL (₹2,000 = ~35 signups). Allocating ₹1,200 into Class CR micro-bounties inside high-trust college placement WhatsApp groups achieves ₹5.21 CAC.
+            </p>
+          </div>
+
+          <div class="card-subtle" style="margin-bottom:10px;">
+            <strong style="color:var(--cyber-yellow);">02 // 4-Field Mobile Flow Over Long Forms</strong>
+            <p style="font-size:12.5px; color:var(--text-muted); margin-top:4px;">
+              Students open class links on mobile between lectures. Removing GitHub/LinkedIn/CGPA fields from initial signup prevents mobile drop-off.
+            </p>
+          </div>
+
+          <div class="card-subtle">
+            <strong style="color:var(--cyber-cyan);">03 // In-Browser Rubric Grader Over ZIP Uploads</strong>
+            <p style="font-size:12.5px; color:var(--text-muted); margin-top:4px;">
+              Instant rubric feedback at Minute 55 turns completed builds into shareable LinkedIn Proof-of-Build cards.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

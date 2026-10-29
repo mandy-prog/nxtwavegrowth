@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NxtWave // BUILD60 — AI Worklog</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    body { padding: 28px 16px; }
+    .doc-container { max-width: 960px; margin: 0 auto; display: flex; flex-direction: column; gap: 24px; }
+    .worklog-card {
+      background: var(--bg-panel);
+      border: 1.5px solid rgba(0, 240, 255, 0.45);
+      clip-path: var(--clip-card);
+      padding: 28px 32px;
+      position: relative;
+    }
+    .worklog-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 50px;
+      height: 3px;
+      background: var(--cyber-yellow);
+    }
+    .step-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 14px; }
+    @media (max-width: 780px) { .step-grid { grid-template-columns: 1fr; } }
+    .step-box { padding: 14px; font-size: 13px; line-height: 1.55; border: 1px solid rgba(0,240,255,0.3); clip-path: var(--clip-btn); background: rgba(6, 8, 16, 0.8); }
+    .box-label { font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 700; text-transform: uppercase; display: block; margin-bottom: 6px; }
+  </style>
+</head>
+<body>
+
+  <canvas id="cyberCanvas"></canvas>
+  <div class="scanline-overlay"></div>
+
+  <div class="doc-container">
+    <div class="top-hud-bar" style="clip-path:var(--clip-btn); border:1px solid rgba(0,240,255,0.4);">
+      <span><strong>NXTWAVE // BUILD60</strong> • AI WORKLOG &amp; ITERATION NOTES</span>
+      <div style="display:flex; gap:10px;">
+        <button class="btn-secondary" onclick="window.print()">🖨 Save PDF</button>
+        <a href="index.html" class="btn-secondary" style="text-decoration:none;">← Launch Portal</a>
+      </div>
+    </div>
+
+    <!-- EXAMPLE 1 -->
+    <section class="worklog-card">
+      <span class="code-tag">EXAMPLE 01 / 03 // CHANNEL &amp; BUDGET ALLOCATION</span>
+      <h2 style="font-family:'Chakra Petch'; font-size:22px; margin-top:8px;">
+        Reallocating ₹2,000 From Cold Paid Ads to Class CR Micro-Bounties
+      </h2>
+      <div class="step-grid">
+        <div class="step-box">
+          <span class="box-label" style="color:var(--cyber-cyan);">1. Prompt</span>
+          “Get 500 final-year engineering students in India to register for a free 60-minute workshop ('Build Your First AI Project in 60 Minutes') within 7 days on a ₹2,000 budget. Suggest channel split.”
+        </div>
+        <div class="step-box">
+          <span class="box-label" style="color:var(--cyber-yellow);">2. AI Suggestion</span>
+          • ₹1,200 on Instagram &amp; Facebook Lead Ads targeting CS students.<br/>
+          • ₹500 on LinkedIn Sponsored Messaging.<br/>
+          • ₹300 on cold emailing college Training &amp; Placement Officers (TPOs).
+        </div>
+        <div class="step-box">
+          <span class="box-label" style="color:var(--cyber-pink);">3. What Was Rejected &amp; Why</span>
+          • LinkedIn requires ~₹800/day minimum spend.<br/>
+          • Cold EdTech webinar CPL on Meta in India is ₹45–₹75 (₹1,200 = ~22 signups).<br/>
+          • TPO cold emails take weeks for approval—too slow for a 7-day window.
+        </div>
+        <div class="step-box">
+          <span class="box-label" style="color:var(--cyber-green);">4. Final Implementation</span>
+          • <strong>₹1,200 → Class CR Micro-Bounties:</strong> 6 performance bounties for 25 final-year CRs sharing tracked links in official class WhatsApp groups (230 regs).<br/>
+          • <strong>₹500 → 5 Coding Club Co-Hosted Sprints:</strong> (105 regs).<br/>
+          • <strong>₹0 → 2-Partner Squad Referral Unlock:</strong> (175 regs).
+        </div>
+      </div>
+    </section>
+
+    <!-- EXAMPLE 2 -->
+    <section class="worklog-card">
+      <span class="code-tag">EXAMPLE 02 / 03 // POSITIONING &amp; SIGNUP FLOW</span>
+      <h2 style="font-family:'Chakra Petch'; font-size:22px; margin-top:8px;">
+        Replacing “Free Certificate” Hype With the Resume Bullet Previewer
+      </h2>
+      <div class="step-grid">
+        <div class="step-box">
+          <span class="box-label" style="color:var(--cyber-cyan);">1. Prompt</span>
+          “Write a hero hook and registration form for final-year B.Tech students for 'Build Your First AI Project in 60 Minutes'.”
+        </div>
+        <div class="step-box">
+          <span class="box-label" style="color:var(--cyber-yellow);">2. AI Suggestion</span>
+          • <em>Headline:</em> “Master Artificial Intelligence in 60 Minutes &amp; Get a Free Certificate!”<br/>
+          • <em>Form:</em> 8-field form asking for Name, Email, Phone, College, Branch, CGPA, LinkedIn URL, and GitHub URL.
+        </div>
+        <div class="step-box">
+          <span class="box-label" style="color:var(--cyber-pink);">3. What Was Rejected &amp; Why</span>
+          • Final-year students have 10+ webinar certificates that didn't help in placements.<br/>
+          • Asking for LinkedIn/GitHub URLs on mobile between college lectures causes ~60% form drop-off.
+        </div>
+        <div class="step-box">
+          <span class="box-label" style="color:var(--cyber-green);">4. Final Implementation</span>
+          • <strong>Hook:</strong> <em>“Stop putting ‘Titanic CSV’ on your placement resume.”</em><br/>
+          • <strong>Interactive Widget:</strong> Branch + Role selector previewing the exact STAR resume bullet unlocked at Minute 60.<br/>
+          • <strong>4-Field Mobile Form:</strong> Name, WhatsApp #, College, Batch.
+        </div>
+      </div>
+    </section>
+
+    <!-- EXAMPLE 3 -->
+    <section class="worklog-card">
+      <span class="code-tag">EXAMPLE 03 / 03 // VIRAL MECHANIC &amp; IN-WORKSHOP GRADER</span>
+      <h2 style="font-family:'Chakra Petch'; font-size:22px; margin-top:8px;">
+        2-Partner Instant Unlock &amp; Automated In-Browser Rubric Grader
+      </h2>
+      <div class="step-grid">
+        <div class="step-box">
+          <span class="box-label" style="color:var(--cyber-cyan);">1. Prompt</span>
+          “Design a student referral contest and a way to evaluate 500 student AI projects at the end of a 60-minute workshop.”
+        </div>
+        <div class="step-box">
+          <span class="box-label" style="color:var(--cyber-yellow);">2. AI Suggestion</span>
+          • “Top 3 students who refer 20+ friends win vouchers.”<br/>
+          • “Have students upload a 5-minute video and a ZIP file of their source code after the session.”
+        </div>
+        <div class="step-box">
+          <span class="box-label" style="color:var(--cyber-pink);">3. What Was Rejected &amp; Why</span>
+          • Top-3-only contests demotivate 98% of regular students.<br/>
+          • Recording videos and zipping code at 8 PM on Sunday guarantees &lt;5% completion.
+        </div>
+        <div class="step-box">
+          <span class="box-label" style="color:var(--cyber-green);">4. Final Implementation</span>
+          • <strong>2-Partner Squad Unlock:</strong> Referring just 2 lab partners unlocks the <em>ATS Resume &amp; 30 AI Prompts Pack</em> immediately.<br/>
+          • <strong>Instant Rubric Grader (Tab 4):</strong> Audits Colab URL + system prompt across 4 criteria and mints a LinkedIn Proof-of-Build Card.
+        </div>
+      </div>
+    </section>
+  </div>
+</body>
+</html>

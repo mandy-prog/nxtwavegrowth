@@ -1,0 +1,694 @@
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,500;0,600;0,700;1,600&family=JetBrains+Mono:wght@400;500;700&family=Orbitron:wght@600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+
+:root {
+  --bg-void: #06070C;
+  --bg-panel: rgba(12, 16, 28, 0.86);
+  --bg-panel-solid: #0D111E;
+  --cyber-yellow: #FCEE0A;
+  --cyber-cyan: #00F0FF;
+  --cyber-pink: #FF0055;
+  --cyber-green: #00FF9D;
+  --cyber-purple: #9D4EDD;
+  --text-main: #F0F6FC;
+  --text-muted: #8B9BB4;
+  --clip-card: polygon(0 0, calc(100% - 22px) 0, 100% 22px, 100% 100%, 22px 100%, 0 calc(100% - 22px));
+  --clip-btn: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px));
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg-void);
+  color: var(--text-main);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  line-height: 1.55;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+/* Interactive Cyberpunk Background Canvas */
+#cyberCanvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -2;
+  pointer-events: none;
+}
+
+/* Subtle CRT / Anime Scanline Overlay */
+.scanline-overlay {
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(255,255,255,0),
+    rgba(255,255,255,0) 50%,
+    rgba(0, 240, 255, 0.025) 50%,
+    rgba(0, 0, 0, 0.15)
+  );
+  background-size: 100% 4px;
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Moving Laser Scan Bar */
+.laser-line {
+  position: fixed;
+  top: -10%;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--cyber-cyan), var(--cyber-yellow), transparent);
+  box-shadow: 0 0 18px var(--cyber-cyan);
+  opacity: 0.35;
+  z-index: -1;
+  animation: laserSweep 9s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes laserSweep {
+  0% { top: -5%; }
+  100% { top: 105%; }
+}
+
+/* Top Edgerunner Telemetry Bar */
+.top-hud-bar {
+  background: rgba(6, 7, 12, 0.92);
+  border-bottom: 1px solid rgba(0, 240, 255, 0.35);
+  padding: 9px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11.5px;
+  backdrop-filter: blur(10px);
+}
+
+.hud-tag {
+  background: var(--cyber-yellow);
+  color: #06070C;
+  font-weight: 800;
+  padding: 2px 8px;
+  clip-path: polygon(0 0, calc(100% - 6px) 0, 100% 6px, 100% 100%, 0 100%);
+  margin-right: 8px;
+}
+
+.top-hud-links {
+  display: flex;
+  gap: 10px;
+}
+
+.top-hud-links a {
+  color: var(--cyber-cyan);
+  text-decoration: none;
+  border: 1px solid rgba(0, 240, 255, 0.4);
+  padding: 4px 12px;
+  clip-path: var(--clip-btn);
+  background: rgba(0, 240, 255, 0.06);
+  transition: all 0.2s ease;
+}
+
+.top-hud-links a:hover {
+  background: var(--cyber-cyan);
+  color: #06070C;
+  box-shadow: 0 0 15px rgba(0, 240, 255, 0.6);
+}
+
+/* Header Navigation */
+.navbar {
+  max-width: 1200px;
+  margin: 22px auto 0;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.brand-logo {
+  width: 44px;
+  height: 44px;
+  background: var(--cyber-yellow);
+  color: #06070C;
+  clip-path: var(--clip-btn);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 900;
+  font-size: 18px;
+  box-shadow: 0 0 18px rgba(252, 238, 10, 0.45);
+}
+
+.brand-text h1 {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  text-shadow: 0 0 10px rgba(0, 240, 255, 0.45);
+}
+
+.brand-text span {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: var(--cyber-cyan);
+}
+
+/* Cyberpunk Module Tabs */
+.module-tabs {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.tab-btn {
+  background: rgba(13, 17, 30, 0.85);
+  border: 1px solid rgba(0, 240, 255, 0.35);
+  color: var(--text-muted);
+  padding: 9px 15px;
+  font-family: 'Chakra Petch', sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  clip-path: var(--clip-btn);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.tab-btn:hover {
+  color: #FFFFFF;
+  border-color: var(--cyber-cyan);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(0, 240, 255, 0.22);
+}
+
+.tab-btn.active {
+  background: var(--cyber-yellow);
+  color: #06070C;
+  border-color: var(--cyber-yellow);
+  box-shadow: 0 0 20px rgba(252, 238, 10, 0.45);
+}
+
+.tab-step {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10.5px;
+  background: rgba(0, 240, 255, 0.18);
+  color: var(--cyber-cyan);
+  padding: 1px 5px;
+}
+
+.tab-btn.active .tab-step {
+  background: #06070C;
+  color: var(--cyber-yellow);
+}
+
+/* Container & Smooth Tab Entry Animation */
+.container {
+  max-width: 1200px;
+  margin: 26px auto 64px;
+  padding: 0 20px;
+}
+
+.tab-panel {
+  display: none;
+}
+
+.tab-panel.active {
+  display: block;
+  animation: cyberBoot 0.38s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes cyberBoot {
+  0% {
+    opacity: 0;
+    transform: translateY(12px) scale(0.99);
+    filter: hue-rotate(45deg) brightness(1.4);
+  }
+  60% {
+    filter: hue-rotate(0deg) brightness(1.05);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: none;
+  }
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.9fr;
+  gap: 24px;
+  align-items: start;
+}
+
+@media (max-width: 960px) {
+  .hero-grid { grid-template-columns: 1fr; }
+}
+
+/* Chamfered Cyberpunk HUD Cards */
+.card {
+  background: var(--bg-panel);
+  border: 1px solid rgba(0, 240, 255, 0.35);
+  clip-path: var(--clip-card);
+  padding: 28px;
+  position: relative;
+  backdrop-filter: blur(14px);
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.6), inset 0 0 22px rgba(0, 240, 255, 0.04);
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.card:hover {
+  border-color: rgba(0, 240, 255, 0.7);
+  box-shadow: 0 12px 40px rgba(0, 240, 255, 0.12), inset 0 0 25px rgba(0, 240, 255, 0.07);
+}
+
+/* Glowing Yellow Corner Accent on Cards */
+.card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 48px;
+  height: 3px;
+  background: var(--cyber-yellow);
+  box-shadow: 0 0 10px var(--cyber-yellow);
+}
+
+.card-subtle {
+  background: rgba(6, 8, 16, 0.75);
+  border: 1px solid rgba(0, 240, 255, 0.22);
+  border-left: 3px solid var(--cyber-cyan);
+  padding: 15px;
+  clip-path: var(--clip-btn);
+}
+
+/* Eyebrow & Glitch Headings */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(0, 240, 255, 0.1);
+  border: 1px solid var(--cyber-cyan);
+  color: var(--cyber-cyan);
+  padding: 4px 12px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+  clip-path: var(--clip-btn);
+}
+
+.live-dot {
+  width: 8px;
+  height: 8px;
+  background: var(--cyber-green);
+  border-radius: 50%;
+  box-shadow: 0 0 10px var(--cyber-green);
+  animation: pulseDot 1.4s infinite alternate;
+}
+
+@keyframes pulseDot {
+  from { opacity: 0.4; transform: scale(0.85); }
+  to { opacity: 1; transform: scale(1.2); }
+}
+
+.hero-title {
+  font-family: 'Chakra Petch', sans-serif;
+  font-size: clamp(28px, 3.6vw, 40px);
+  line-height: 1.12;
+  font-weight: 700;
+  margin-bottom: 14px;
+  color: #FFFFFF;
+}
+
+.hero-title .serif-italic {
+  color: var(--cyber-yellow);
+  text-shadow: 2px 0px var(--cyber-pink), -2px 0px var(--cyber-cyan);
+  font-style: italic;
+}
+
+.hero-subtitle {
+  font-size: 15px;
+  color: var(--text-muted);
+  margin-bottom: 20px;
+}
+
+/* Interactive Resume Bullet Previewer HUD */
+.previewer-box {
+  background: rgba(5, 7, 14, 0.92);
+  border: 1px solid var(--cyber-yellow);
+  clip-path: var(--clip-btn);
+  padding: 18px;
+  margin: 18px 0;
+  box-shadow: 0 0 24px rgba(252, 238, 10, 0.12);
+}
+
+.previewer-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: var(--cyber-yellow);
+}
+
+.selector-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.selector-row select {
+  background: #0F1526;
+  color: var(--cyber-cyan);
+  border: 1px solid rgba(0, 240, 255, 0.45);
+  padding: 9px 12px;
+  font-family: 'Chakra Petch', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  clip-path: var(--clip-btn);
+}
+
+.resume-output {
+  background: rgba(0, 255, 157, 0.06);
+  border-left: 3px solid var(--cyber-green);
+  padding: 12px 14px;
+  font-size: 13px;
+  color: #E2F1FF;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.resume-output strong {
+  color: var(--cyber-green);
+  font-size: 11px;
+  display: block;
+  margin-bottom: 4px;
+}
+
+/* Stats Strip */
+.stats-strip {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.stat-item {
+  background: rgba(0, 240, 255, 0.05);
+  border: 1px solid rgba(0, 240, 255, 0.3);
+  padding: 12px;
+  text-align: center;
+  clip-path: var(--clip-btn);
+}
+
+.stat-value {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--cyber-yellow);
+  text-shadow: 0 0 10px rgba(252, 238, 10, 0.35);
+}
+
+.stat-label {
+  font-size: 11px;
+  color: var(--text-muted);
+  font-family: 'JetBrains Mono', monospace;
+  margin-top: 2px;
+}
+
+/* Inputs & Cyberpunk Buttons */
+.form-group {
+  margin-bottom: 13px;
+}
+
+.form-group label {
+  display: block;
+  font-family: 'Chakra Petch', sans-serif;
+  font-size: 12.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 5px;
+  color: var(--cyber-cyan);
+}
+
+.form-input, .form-select, .form-textarea {
+  width: 100%;
+  padding: 11px 13px;
+  background: rgba(6, 9, 18, 0.9);
+  border: 1px solid rgba(0, 240, 255, 0.4);
+  color: #FFFFFF;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 13.5px;
+  clip-path: var(--clip-btn);
+  transition: all 0.2s ease;
+}
+
+.form-input:focus, .form-select:focus, .form-textarea:focus {
+  outline: none;
+  border-color: var(--cyber-yellow);
+  box-shadow: 0 0 15px rgba(252, 238, 10, 0.3);
+}
+
+.btn-primary {
+  width: 100%;
+  padding: 14px 18px;
+  background: var(--cyber-yellow);
+  color: #06070C;
+  border: none;
+  clip-path: var(--clip-btn);
+  font-family: 'Orbitron', sans-serif;
+  font-size: 13.5px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  cursor: pointer;
+  box-shadow: 0 0 22px rgba(252, 238, 10, 0.4);
+  transition: all 0.18s ease;
+  position: relative;
+}
+
+.btn-primary:hover {
+  background: var(--cyber-cyan);
+  color: #06070C;
+  box-shadow: 0 0 28px rgba(0, 240, 255, 0.7);
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  padding: 8px 13px;
+  background: rgba(0, 240, 255, 0.08);
+  color: var(--cyber-cyan);
+  border: 1px solid rgba(0, 240, 255, 0.45);
+  clip-path: var(--clip-btn);
+  font-family: 'Chakra Petch', sans-serif;
+  font-size: 12.5px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.18s ease;
+}
+
+.btn-secondary:hover {
+  background: var(--cyber-cyan);
+  color: #06070C;
+  box-shadow: 0 0 14px rgba(0, 240, 255, 0.5);
+}
+
+.btn-whatsapp {
+  background: var(--cyber-green);
+  color: #06070C;
+  border: none;
+  padding: 11px 16px;
+  clip-path: var(--clip-btn);
+  font-family: 'Chakra Petch', sans-serif;
+  font-weight: 800;
+  font-size: 13.5px;
+  cursor: pointer;
+  box-shadow: 0 0 16px rgba(0, 255, 157, 0.4);
+}
+
+/* Progress Bars */
+.progress-track {
+  width: 100%;
+  height: 12px;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(0, 240, 255, 0.4);
+  clip-path: var(--clip-btn);
+  overflow: hidden;
+  margin: 10px 0;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--cyber-cyan), var(--cyber-yellow), var(--cyber-green));
+  box-shadow: 0 0 14px var(--cyber-cyan);
+  transition: width 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Cyberpunk Comms Terminal (WhatsApp Bot Flow) */
+.wa-phone {
+  background: #080C16;
+  border: 1.5px solid var(--cyber-cyan);
+  clip-path: var(--clip-card);
+  overflow: hidden;
+  box-shadow: 0 0 30px rgba(0, 240, 255, 0.18);
+  display: flex;
+  flex-direction: column;
+  height: 500px;
+}
+
+.wa-header {
+  background: linear-gradient(90deg, #0D1B2A, #1B263B);
+  border-bottom: 1px solid var(--cyber-cyan);
+  color: #FFFFFF;
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.wa-header-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.wa-avatar {
+  width: 34px;
+  height: 34px;
+  clip-path: var(--clip-btn);
+  background: var(--cyber-green);
+  color: #06070C;
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 900;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+}
+
+.wa-messages {
+  flex: 1;
+  padding: 16px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.wa-bubble {
+  max-width: 84%;
+  padding: 10px 14px;
+  font-size: 13px;
+  line-height: 1.45;
+  clip-path: var(--clip-btn);
+  animation: cyberBoot 0.25s ease forwards;
+}
+
+.wa-bubble.bot {
+  background: rgba(0, 240, 255, 0.1);
+  border: 1px solid rgba(0, 240, 255, 0.4);
+  color: #E6F4FF;
+  align-self: flex-start;
+}
+
+.wa-bubble.user {
+  background: rgba(0, 255, 157, 0.15);
+  border: 1px solid var(--cyber-green);
+  color: #FFFFFF;
+  align-self: flex-end;
+}
+
+.wa-time {
+  display: block;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  color: var(--cyber-yellow);
+  text-align: right;
+  margin-top: 4px;
+}
+
+.wa-controls {
+  background: #0B101E;
+  padding: 10px;
+  border-top: 1px solid rgba(0, 240, 255, 0.3);
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+/* Data Tables */
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.data-table th, .data-table td {
+  padding: 11px 12px;
+  border-bottom: 1px solid rgba(0, 240, 255, 0.18);
+  text-align: left;
+}
+
+.data-table th {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  text-transform: uppercase;
+  color: var(--cyber-yellow);
+  background: rgba(252, 238, 10, 0.08);
+}
+
+.code-tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11.5px;
+  background: rgba(0, 240, 255, 0.12);
+  color: var(--cyber-cyan);
+  padding: 3px 8px;
+  border: 1px solid rgba(0, 240, 255, 0.45);
+  font-weight: 700;
+}
+
+.rubric-bar { margin-bottom: 12px; }
+.rubric-bar-top {
+  display: flex;
+  justify-content: space-between;
+  font-family: 'Chakra Petch', sans-serif;
+  font-size: 12.5px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.cert-card {
+  background: linear-gradient(135deg, rgba(0, 240, 255, 0.14) 0%, rgba(157, 78, 221, 0.18) 100%);
+  border: 1.5px solid var(--cyber-yellow);
+  clip-path: var(--clip-card);
+  padding: 20px;
+  margin-top: 16px;
+  box-shadow: 0 0 25px rgba(252, 238, 10, 0.15);
+}
